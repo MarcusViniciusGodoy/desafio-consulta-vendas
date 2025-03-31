@@ -13,6 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_seller")
 public class Seller {
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
