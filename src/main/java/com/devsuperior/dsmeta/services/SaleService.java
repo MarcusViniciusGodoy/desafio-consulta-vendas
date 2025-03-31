@@ -10,11 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.dsmeta.dto.SaleMinDTO;
-import com.devsuperior.dsmeta.dto.SellerMinDTO;
 import com.devsuperior.dsmeta.entities.Sale;
-import com.devsuperior.dsmeta.entities.Seller;
 import com.devsuperior.dsmeta.repositories.SaleRepository;
-import com.devsuperior.dsmeta.repositories.SellerRepository;
 
 @Service
 public class SaleService {
