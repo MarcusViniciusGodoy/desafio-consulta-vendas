@@ -4,6 +4,7 @@ package com.devsuperior.dsmeta.controllers;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.devsuperior.dsmeta.dto.SaleDTO;
 import com.devsuperior.dsmeta.dto.SaleMinDTO;
 import com.devsuperior.dsmeta.services.SaleService;
 
@@ -56,9 +58,19 @@ public class SaleController {
         return ResponseEntity.ok(dto);
     }
 
-	@GetMapping(value = "/summary")
-	public ResponseEntity<?> getSummary() {
-		// TODO
-		return null;
-	}
+    @GetMapping("/summary")
+    public ResponseEntity<List<SaleDTO>> getSummary(
+            @RequestParam(name = "name", defaultValue = "") String name,
+            @RequestParam(name = "minDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate minDate,
+            @RequestParam(name = "maxDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate maxDate) {
+        
+                
+        List<SaleDTO> summary;
+        if (minDate != null && maxDate != null) {
+            summary = service.getSalesSummary(name, minDate, maxDate);
+        } else {
+            summary = service.getSalesSummaryMonths(name);
+        }
+        return ResponseEntity.ok(summary);
+    }
 }

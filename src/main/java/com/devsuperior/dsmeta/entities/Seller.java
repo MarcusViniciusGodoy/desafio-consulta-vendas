@@ -14,7 +14,6 @@ import javax.persistence.Table;
 @Table(name = "tb_seller")
 public class Seller {
 	
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

@@ -17,6 +17,11 @@ public class SaleMinDTO {
 		this.amount = amount;
 		this.sellerName = sellerName;
 	}
+
+	public SaleMinDTO(String sellerName, Double total) {
+        this.sellerName = sellerName;
+        this.amount = total;
+    }
 	
 	public SaleMinDTO(Sale entity) {
 		id = entity.getId();
