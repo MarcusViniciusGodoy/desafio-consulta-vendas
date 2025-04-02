@@ -45,17 +45,4 @@ public class SaleMinDTO {
     public String getSellerName() {
         return sellerName;
     }
-
-	@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        SaleMinDTO that = (SaleMinDTO) o;
-        return id.equals(that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
 }
