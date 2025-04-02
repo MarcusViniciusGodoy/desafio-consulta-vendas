@@ -30,7 +30,7 @@ public class SaleService {
 	}
     
     @Transactional(readOnly = true)
-    public Page<SaleMinDTO> findByDateBetweenAndSellerNameContaining(LocalDate minDate, LocalDate maxDate, String name, Pageable pageable) {
+    public Page<SaleMinDTO> getReport(LocalDate minDate, LocalDate maxDate, String name, Pageable pageable) {
         Page<Sale> sales = repository.findByDateBetweenAndSellerNameContaining(minDate, maxDate, name, pageable);
         return sales.map(SaleMinDTO::new);
     }

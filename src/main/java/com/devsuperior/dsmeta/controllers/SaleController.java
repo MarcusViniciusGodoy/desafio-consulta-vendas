@@ -35,7 +35,7 @@ public class SaleController {
 	}
 
 	@GetMapping(value = "/report")
-    public ResponseEntity<Page<SaleMinDTO>> findReport(
+    public ResponseEntity<Page<SaleMinDTO>> getReport(
             @RequestParam(name = "minDate", required = false) 
             @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate minDate,
             
@@ -54,7 +54,7 @@ public class SaleController {
             maxDate = LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());
         }
 
-        Page<SaleMinDTO> dto = service.findByDateBetweenAndSellerNameContaining(minDate, maxDate, name, pageable);
+        Page<SaleMinDTO> dto = service.getReport(minDate, maxDate, name, pageable);
         return ResponseEntity.ok(dto);
     }
 

@@ -18,9 +18,9 @@ public class SaleMinDTO {
 		this.sellerName = sellerName;
 	}
 
-	public SaleMinDTO(String sellerName, Double total) {
+	public SaleMinDTO(String sellerName, Double amount) {
         this.sellerName = sellerName;
-        this.amount = total;
+        this.amount = amount;
     }
 	
 	public SaleMinDTO(Sale entity) {
@@ -44,5 +44,18 @@ public class SaleMinDTO {
 
     public String getSellerName() {
         return sellerName;
+    }
+
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SaleMinDTO that = (SaleMinDTO) o;
+        return id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
 }

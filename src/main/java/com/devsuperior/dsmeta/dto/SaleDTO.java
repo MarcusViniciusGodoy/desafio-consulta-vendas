@@ -6,20 +6,20 @@ import com.devsuperior.dsmeta.entities.Sale;
 public class SaleDTO {
 
     private String sellerName;
-	private Double amount;
+	private Double total;
 
-    public SaleDTO(String sellerName, Double amount) {
+    public SaleDTO(String sellerName, Double total) {
         this.sellerName = sellerName;
-        this.amount = amount;
+        this.total = total;
     }
 
     public SaleDTO(Sale entity){
         sellerName = entity.getSeller().getName();
-        amount = entity.getAmount();
+        total = entity.getAmount();
     }
 
-    public Double getAmount() {
-        return amount;
+    public Double getTotal() {
+        return total;
     }
 
     public String getSellerName() {
